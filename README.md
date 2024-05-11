@@ -6,9 +6,9 @@ Please flollow the instructions that Paul provided to us to create an AWS EC2 in
 
 ## AWS setup
 
-SSH to your EC2 instance. (If you are not familiar with SSH, please just click the `Connect` button on the top right corner of EC2 instance page and select the tab `EC2 Instance Connect` by default, you will be able to connect to the instance without any further setup.)
+`ssh` to your EC2 instance. (If you are not familiar with `ssh`, please just click the `Connect` button on the top right corner of EC2 instance page and select the tab `EC2 Instance Connect` by default, you will be able to connect to the instance without any further setup.)
 
-### set flask app environment
+### Set flask app environment
 
 1. create a `app` folder in the home directory of the instance.
 2. put the `app.py` file in the `app` folder. The file exampe is avaliable in [this repository](https://github.com/Data472-Individual-Project-Pipeline/flask-web-api-example).
@@ -31,10 +31,10 @@ pip freeze > requirements.txt
 6. now you can try to run the flask app by running the following command `python app.py`. You should be able to see the following output:
 
 ```bash
-* Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+* Running on http://127.0.0.1:8000/ (Press CTRL+C to quit)
 ```
 
-### set gunicorn service
+### Set gunicorn service
 
 1. create a `flaskapp.service` file in the `/etc/systemd/system/` folder. The file content should be like the following:
 
@@ -62,7 +62,7 @@ sudo systemctl enable flaskapp
 
 now the flask app should be running as a service.
 
-### set nginx
+### Set Nginx
 
 1. install nginx by running the following command:
 
@@ -98,7 +98,7 @@ server {
 }
 ```
 
-4. restart nginx by running the following command:
+4. restart Nginx by running the following command:
 
 ```bash
 sudo systemctl restart nginx
