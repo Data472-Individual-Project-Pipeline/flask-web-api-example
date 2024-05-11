@@ -16,6 +16,8 @@ Please flollow the instructions that Paul provided to us to create an AWS EC2 in
 4. make the current shell use the venv folder by running the following command:
 
 ```bash
+sudo apt-get update
+sudo apt install python3-virtualenv
 virtualenv -p python3 venv
 source app/venv/bin/activate
 ```
