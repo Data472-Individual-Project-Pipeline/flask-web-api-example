@@ -33,6 +33,8 @@ pip freeze > requirements.txt
 ```
 
 6. Finally, your app folder should be like the following:
+
+![Files structure](./images/aws-files.jpg)
  
 ```bash
 (venv) ubuntu@ip-10-0-1-217:~/app$ tree -L 2
@@ -45,7 +47,7 @@ pip freeze > requirements.txt
     └── pyvenv.cfg
 ```
 
-7. now you can try to run the flask app by running the following command `python app.py`. You should be able to see the following output:
+1. now you can try to run the flask app by running the following command `python app.py`. You should be able to see the following output:
 
 ```bash
  * Running on all addresses (0.0.0.0)
@@ -73,7 +75,9 @@ WantedBy=multi-user.target
 
 notes: If your EC2 instance image is not ubuntu, you should replace the `ubuntu` with the correct user name.
 
-2. enable the service by running the following command:
+![Gunicorn Config](./images/services.jpg)
+
+1. enable the service by running the following command:
 
 ```bash
 sudo systemctl start flaskapp
@@ -105,6 +109,8 @@ sudo systemctl start nginx
 
 1. enable nginx reverse proxy by updating a file named `default` in the `/etc/nginx/sites-available/` folder. The file finally should be like the following: the IP address `3.25.86.51` is my AWS EC2 instance public IP address, you should replace it with your own IP address.
 
+![Nginx config](./images/nginx.jpg)
+
 ```bash
 server {
         listen 80 default_server;
@@ -132,6 +138,8 @@ server {
 ```bash
 sudo systemctl restart nginx
 ```
+
+![Two services](./images/ser2.jpg)
 
 My example address: [http://3.25.86.51/](http://3.25.86.51/)
 
@@ -185,4 +193,10 @@ My example address: [http://3.25.86.51/](http://3.25.86.51/)
 ]
 ```
 
-now you should be able to access the web API by using the public IP address of the EC2 instance. Donot use https, just use http. The AWS EC2 instance I used is called `i-0500e178a5e5e1778 (DATA472-hwa205-flaskwebapiexample)` You can go AWS to access it to check any configuration files I mentioned above. Feel free to ask me or Jacob or contact Central Collection Team if you have any questions.
+now you should be able to access the web API by using the public IP address of the EC2 instance. Donot use https, just use http. The AWS EC2 instance I used is called `i-0500e178a5e5e1778 (DATA472-hwa205-flaskwebapiexample)` You can go AWS to access it to check any configuration files I mentioned above.
+
+![My AWS EC2 instance](./images/aws.jpg)
+
+## Conclusion
+
+There are so many ways to deploy a web api application to AWS EC2 Instance, such as using Docker, Apache, Nginx, etc. The above example is just one of the ways. I hope this example can help you to understand how to deploy a web api application to AWS EC2 Instance. The only things you need to do is that just write a data pipeline ETL code to your python script. If you have any questions, please feel free to ask me or Jacob or contact Central Collection Team.
