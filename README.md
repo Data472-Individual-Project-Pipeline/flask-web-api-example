@@ -33,7 +33,10 @@ pip freeze > requirements.txt
 6. now you can try to run the flask app by running the following command `python app.py`. You should be able to see the following output:
 
 ```bash
-* Running on http://127.0.0.1:8000/ (Press CTRL+C to quit)
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://10.0.1.217:8000
+Press CTRL+C to quit
 ```
 
 ### Set gunicorn service
