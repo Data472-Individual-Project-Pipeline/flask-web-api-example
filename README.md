@@ -78,7 +78,13 @@ sudo systemctl start flaskapp
 sudo systemctl enable flaskapp
 ```
 
-now the flask app should be running as a service.
+now the flask app should be running as a service. Testing it by type `curl http://localhost:8000` in the shell. You should be able to see the following output:
+
+```bash
+{
+  "message": "Your json data response here...!"
+}
+```
 
 ### Set Nginx
 
@@ -95,31 +101,34 @@ sudo apt-get install nginx
 sudo systemctl start nginx
 ```
 
-3. enable nginx reverse proxy by creating a file named `flaskapp.conf` in the `/etc/nginx/conf.d/` folder. The file content should be like the following:
+1. enable nginx reverse proxy by updating a file named `default` in the `/etc/nginx/sites-available/` folder. The file finally should be like the following: the IP address `3.25.86.51` is my AWS EC2 instance public IP address, you should replace it with your own IP address.
 
 ```bash
 server {
-    listen 80 default_server;
-    server_name _; # replace underline with your aws instance public IP address
-    access_log  /var/log/nginx/access.log;
-    error_log  /var/log/nginx/error.log;
+        listen 80 default_server;
+        listen [::]:80 default_server;
 
-    location / {
-        proxy_pass         http://127.0.0.1:8000/;
-        proxy_redirect     off;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
 
-        proxy_set_header   Host                 $host;
-        proxy_set_header   X-Real-IP            $remote_addr;
-        proxy_set_header   X-Forwarded-For      $proxy_add_x_forwarded_for;
-        proxy_set_header   X-Forwarded-Proto    $scheme;
-    }
+        server_name 3.25.86.51;
+
+        location / {
+                proxy_pass         http://127.0.0.1:8000/;
+                proxy_redirect     off;
+
+                proxy_set_header   Host                 $host;
+                proxy_set_header   X-Real-IP            $remote_addr;
+                proxy_set_header   X-Forwarded-For      $proxy_add_x_forwarded_for;
+                proxy_set_header   X-Forwarded-Proto    $scheme;
+        }
 }
 ```
 
-4. restart Nginx by running the following command:
+1. restart Nginx by running the following command:
 
 ```bash
 sudo systemctl restart nginx
 ```
 
-now you should be able to access the web API by using the public IP address of the EC2 instance. Donot use https, just use http.
+now you should be able to access the web API by using the public IP address of the EC2 instance. Donot use https, just use http. The AWS EC2 instance I used is called `i-0500e178a5e5e1778 (DATA472-hwa205-flaskwebapiexample)` You can go AWS to access it to check any configuration files I mentioned above. Feel free to ask me or Jacob or contact Central Collection Team if you have any questions.
