@@ -30,7 +30,20 @@ pip install gunicorn
 pip freeze > requirements.txt
 ```
 
-6. now you can try to run the flask app by running the following command `python app.py`. You should be able to see the following output:
+6. Finally, your app folder should be like the following:
+7. 
+```bash
+(venv) ubuntu@ip-10-0-1-217:~/app$ tree -L 2
+.
+├── app.py
+├── requirements.txt
+└── venv
+    ├── bin
+    ├── lib
+    └── pyvenv.cfg
+```
+
+7. now you can try to run the flask app by running the following command `python app.py`. You should be able to see the following output:
 
 ```bash
  * Running on all addresses (0.0.0.0)
