@@ -19,7 +19,7 @@ Please flollow the instructions that Paul provided to us to create an AWS EC2 in
 sudo apt-get update
 sudo apt install python3-virtualenv
 virtualenv -p python3 venv
-source app/venv/bin/activate
+source venv/bin/activate
 ```
 
 5. install the required packages and freeze the requirements:
