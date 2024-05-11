@@ -131,4 +131,56 @@ server {
 sudo systemctl restart nginx
 ```
 
+My example address: [http://3.25.86.51/](http://3.25.86.51/)
+
+```JavaScript
+[
+    {
+    "aqi": 50,
+    "co": 60,
+    "date": "2024-05-1",
+    "humidity": 50,
+    "location": "Location 1",
+    "no2": 40,
+    "o3": 30,
+    "pm10": 20,
+    "pm25": 10,
+    "region": "Region 1",
+    "so2": 50,
+    "temperature": 20,
+    "wind_speed": 5
+    },
+    {
+    "aqi": 51,
+    "co": 61,
+    "date": "2024-05-2",
+    "humidity": 51,
+    "location": "Location 2",
+    "no2": 41,
+    "o3": 31,
+    "pm10": 21,
+    "pm25": 11,
+    "region": "Region 2",
+    "so2": 51,
+    "temperature": 21,
+    "wind_speed": 6
+    },
+    {
+    "aqi": 52,
+    "co": 62,
+    "date": "2024-05-3",
+    "humidity": 52,
+    "location": "Location 3",
+    "no2": 42,
+    "o3": 32,
+    "pm10": 22,
+    "pm25": 12,
+    "region": "Region 3",
+    "so2": 52,
+    "temperature": 22,
+    "wind_speed": 7
+    }
+]
+```
+
 now you should be able to access the web API by using the public IP address of the EC2 instance. Donot use https, just use http. The AWS EC2 instance I used is called `i-0500e178a5e5e1778 (DATA472-hwa205-flaskwebapiexample)` You can go AWS to access it to check any configuration files I mentioned above. Feel free to ask me or Jacob or contact Central Collection Team if you have any questions.
