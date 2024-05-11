@@ -31,7 +31,7 @@ pip freeze > requirements.txt
 ```
 
 6. Finally, your app folder should be like the following:
-7. 
+ 
 ```bash
 (venv) ubuntu@ip-10-0-1-217:~/app$ tree -L 2
 .
