@@ -141,8 +141,6 @@ sudo systemctl restart nginx
 
 ![Two services](./images/ser2.jpg)
 
-My example address: [http://3.25.86.51/](http://3.25.86.51/)
-
 ```JavaScript
 [
     {
